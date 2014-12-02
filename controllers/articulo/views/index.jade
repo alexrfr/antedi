@@ -1,0 +1,25 @@
+extends ../../../layouts/admin
+
+block content
+
+	a.center.button(href="/admin/articulo/new") NUEVA OBRA
+	br
+
+	h2.center Lista de obras
+	table.lista.center 
+		tr
+			th Título
+			//- th Precio
+			th &nbsp;
+		- if (articulos)
+			- each articulo in articulos
+				tr
+					td
+						a(href="/admin/articulo/edit/" + articulo._id.toString()) #{articulo.titulo}
+					//- td #{articulo.descripcion}
+					td #{articulo.categorias}
+					//- td #{articulo.precio}
+					//- td #{articulo.fotos}
+					//- td #{articulo.videos}
+					td
+						a(href="/admin/articulo/delete/" + articulo._id.toString() onClick="return confirm('¿Estas seguro de que quieres eliminar la obra #{articulo.titulo}?')") Borrar

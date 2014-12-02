@@ -1,0 +1,57 @@
+doctype html
+html
+	head
+		// Basic Page Needs
+		meta(charset="utf-8") 
+		title= "Construcciones Antedi S.L"
+		meta(name="description", content="Construcciones")
+		meta(name="author", content="Alex")
+
+		// Mobile Specific Metas
+		meta(name='viewport', content="width=device-width, initial-scale=1, maximum-scale=1")
+
+		// CSS
+		link(rel='stylesheet', href='/stylesheets/base.css')
+		link(rel='stylesheet', href='/stylesheets/skeleton.css')
+		link(rel='stylesheet', href='/stylesheets/layout.css')
+
+		//Fonts google
+		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
+		// Libreria css bootstrap
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css')
+
+		// Libreria js 
+		script(src='/javascripts/ckeditor/ckeditor.js')
+
+		// Favicons
+		link(rel='shortcut icon', href='/images/favicon.ico')
+		link(rel='apple-touch-icon', href='/images/apple-touch-icon.png')
+		link(rel='apple-touch-icon', sizes='72x72',href='/images/apple-touch-icon-72x72.png')
+		link(rel='apple-touch-icon', sizes='114x114',href='/images/apple-touch-icon-114x114.png')
+
+	body
+
+		.container
+
+			.headerText.sixteen.columns administración
+			
+			.sixteen.columns
+					ul.menu
+						li.menu-item
+							a(href="/admin/articulo") Lista completa 
+						li.menu-item
+							a(href="/admin/logout") Salir 
+
+			.sixteen.columns
+				block content
+
+			.sixteen.columns.section
+				.footer
+					a(href="/") 
+						img.izquierda(src='/images/inicio.png', alt='Ir al inicio')
+
+					p © 2014 Antedi
+
+					a(href="#top") 
+						img.derecha(src='/images/up.png', alt='Vuelta arriba')

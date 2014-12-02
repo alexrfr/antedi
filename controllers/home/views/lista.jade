@@ -1,0 +1,19 @@
+extends ../../../layouts/main
+
+block content
+	.welcome.sixteen.columns
+		h1.header Nuestros trabajos	
+
+	- if (articulos)
+		- each articulo in articulos
+
+			.five.columns.articulo 
+				h3.header.enlace 
+					a(href="/articulo/" + articulo._id.toString()) #{articulo.titulo} 
+				a(href="/articulo/" + articulo._id.toString())
+					img(src='https://s3-us-west-2.amazonaws.com/vendofertaweb/#{articulo.fotos[0]}')
+				//- h5 #{articulo.precio}€
+
+				- if (articulo.categorias)
+					- each categoria in articulo.categorias
+						a(href="/categoria/#{categoria}") #{categoria} 

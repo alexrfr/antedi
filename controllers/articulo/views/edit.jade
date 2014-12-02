@@ -1,0 +1,50 @@
+extends ../../../layouts/admin
+
+block content
+
+	.twelve.columns
+		h1 Editar obra
+
+	.upload-form.eight.columns
+		form(method="POST", action="/admin/articulo/" + _id , enctype="multipart/form-data")
+
+			p 
+				label(for="titulo") Titulo:
+				input(type="text" name="titulo" value=titulo)
+
+			p
+				label(for="descripcion") Descripcion:
+				textarea(name="descripcion" id="descripcion") !{descripcion}
+				script.
+					CKEDITOR.replace( 'descripcion' );
+
+			p 
+				label(for="categorias") Categorias:
+				- var categoriasSinEspacio = categorias.join(' ')
+				input(type="text" name="categorias" value=categoriasSinEspacio)
+
+			//-p 
+			//-	label(for="precio") Precio:
+			//-	input(type="number" name="precio" value=precio)
+
+			//- p 
+			//- 	label(for="videos") Video:
+			//- 	input(type="text" name="videos" value=videos)
+
+			p 
+				label(for="image") Fotos:
+				input.button(type="file" name="image[]" multiple)
+
+			- if (fotos)
+				- each foto in fotos
+					a(href="/admin/articulo/delete/foto/" + _id.toString() + "-" + foto onClick="return confirm('¿Estas seguro de que quieres eliminar la foto?')") 
+						img.three.columns(src='https://s3-us-west-2.amazonaws.com/vendofertaweb/#{foto}')
+
+			- var fotosSinEspacio = fotos.join(' ')
+			input(type="hidden" name="arrayfotos" value=fotosSinEspacio)
+			input(type="hidden" name="_method" value="put")
+
+			br
+			br
+			p.seven.columns
+				button(type="submit") Actualizar

@@ -1,0 +1,20 @@
+extends ../../../layouts/admin
+
+block content
+
+	.twelve.columns
+		h1 Signup
+
+	if message && message.length
+		strong #{message}
+
+	.upload-form.eight.columns
+		form(method="post", action="/admin/signup")
+			p 
+				label(for="userName") Nombre:
+				input(type="text" name="userName")
+			p 
+				label(for="password") Password:
+				input(type="password" name="password")
+			p
+				button(type="submit") Signup

@@ -1,0 +1,39 @@
+extends ../../../layouts/admin
+
+block content
+
+	.twelve.columns
+		h1.center Nuevo obra
+
+	.upload-form.twelve.columns
+		form(method="POST", action="/admin/articulo" enctype="multipart/form-data")
+			if locals.message
+				img(src='#{message}', alt='')
+			p 
+				label(for="titulo") Titulo:
+				input(type="text" name="titulo")
+
+			p
+				label(for="descripcion") Descripcion:
+				textarea(name="descripcion" id="descripcion")
+				script.
+					CKEDITOR.replace( 'descripcion' );
+
+			p 
+				label(for="categorias") Categorias:
+				input(type="text" name="categorias")
+
+			//- p 
+			//-	label(for="precio") Precio:
+			//-	input(type="number" name="precio")
+
+			//- p 
+			//- 	label(for="videos") Videos:
+			//- 	input(type="text" name="videos")
+			
+			p 
+				label(for="image") Fotos:
+				input.button(type="file" name="image[]" multiple)
+
+			p
+				button(type="submit") Guardar
