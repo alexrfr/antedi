@@ -16,7 +16,8 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-AWS.config.loadFromPath('./controllers/config/s3.json');
+AWS.config.update({region: 'us-east-1'});
+//AWS.config.loadFromPath('./controllers/config/s3.json');
 var s3 = new AWS.S3();
 var S3_BUCKET = 'antedi';
 
