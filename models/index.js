@@ -2,12 +2,13 @@ if (!global.hasOwnProperty('db')) {
 
 	var mongoose = require('mongoose');
 
-	var dbName = 'vendoferta'
+	var dbName = 'antedi'
 
 	var uristring =
 	process.env.MONGOLAB_URI ||
 	process.env.MONGOHQ_URL ||
-	'mongodb://heroku_app23353677:akulk5943aorm4rkn2dhbmq1vo@ds031628.mongolab.com:31628/heroku_app23353677';
+	'mongodb://heroku_app32142267:u11ru90uNyG0_oFiDqOtyCb2n-o24GIb@ds061200.mongolab.com:61200/heroku_app32142267';
+	
 	//'mongodb://localhost/' + dbName;
 
 	// Makes connection asynchronously.  Mongoose will queue up database
