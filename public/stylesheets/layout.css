@@ -91,12 +91,12 @@ vertical-align: baseline;
 }
 
 .enlace a { 
-	color: #008b3a; 
+	color: #589371; 
 	text-decoration: none;
 }
 
 .enlace a:hover, .enlace a:focus { 
-	color: #589371; 
+	color: #008b3a; 
 	text-decoration: none;
 }
 
