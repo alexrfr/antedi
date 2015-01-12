@@ -16,8 +16,13 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-AWS.config.update({region: 'us-east-1'});
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET
+
+AWS.config.update({accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_KEY, region: 'us-east-1'});
 //AWS.config.loadFromPath('./controllers/config/s3.json');
+
 var s3 = new AWS.S3();
 var S3_BUCKET = 'antedi';
 
